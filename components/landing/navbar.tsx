@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { Menu, X, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "../theme-toggle"
 import SkyQuakeLogo from "../skyquake-logo"
+import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const pathname = "/"
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +27,7 @@ export function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Pokédex", href: "/pokedex" },
-    { name: "Regions", href: "/regions" },
+    { name: "Region", href: "/region" },
     { name: "Community", href: "/community" },
   ]
 
@@ -45,6 +45,22 @@ export function Navbar() {
             <SkyQuakeLogo />
             <div className="hidden md:block ml-6">
               <div className="flex space-x-1">
+                
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "px-3 py-2 rounded-md text-sm font-medium border transition-all",
+                      pathname === item.href 
+                        ? "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-700" 
+                        : "text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100/80 dark:hover:bg-indigo-800/30 hover:text-indigo-900 dark:hover:text-indigo-100 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800"
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+
                 <div className="relative group">
                   <button className="px-3 py-2 rounded-md text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100/80 dark:hover:bg-indigo-800/30 hover:text-indigo-900 dark:hover:text-indigo-100 border border-transparent hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
                     Explore
@@ -66,7 +82,7 @@ export function Navbar() {
                         <div>
                           <Link
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-indigo-50 dark:hover:bg-indigo-900/50 border border-transparent hover:border-indigo-200 dark:hover:border-indigo-800"
-                            href="/regions"
+                            href="/region"
                           >
                             <div className="text-sm font-medium leading-none text-indigo-700 dark:text-indigo-300">Regions</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-600 dark:text-slate-400">
@@ -89,21 +105,6 @@ export function Navbar() {
                     </div>
                   </div>
                 </div>
-                
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={cn(
-                      "px-3 py-2 rounded-md text-sm font-medium border transition-all",
-                      pathname === item.href 
-                        ? "bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-700" 
-                        : "text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100/80 dark:hover:bg-indigo-800/30 hover:text-indigo-900 dark:hover:text-indigo-100 border-transparent hover:border-indigo-200 dark:hover:border-indigo-800"
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
               </div>
             </div>
           </div>

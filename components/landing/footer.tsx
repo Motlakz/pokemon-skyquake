@@ -47,18 +47,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/types"
+                  href="/region"
                   className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 text-sm"
                 >
-                  Types
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/regions"
-                  className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 text-sm"
-                >
-                  Regions
+                  Region
                 </Link>
               </li>
               <li>

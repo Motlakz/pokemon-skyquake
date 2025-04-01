@@ -58,21 +58,21 @@ export function PokemonCategories() {
       description: "The classic region where it all began",
       image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
       color: "from-red-600 to-blue-600",
-      link: "/regions/kanto",
+      link: "/region/kanto",
     },
     {
       name: "Johto",
       description: "A region rich in tradition and history",
       image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png",
       color: "from-indigo-600 to-purple-600",
-      link: "/regions/johto",
+      link: "/region/johto",
     },
     {
       name: "Hoenn",
       description: "A region with diverse natural environments",
       image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png",
       color: "from-green-600 to-blue-600",
-      link: "/regions/hoenn",
+      link: "/region/hoenn",
     },
   ]
 

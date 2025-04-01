@@ -102,7 +102,7 @@ export function RegionsGrid() {
     <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={container} initial="hidden" animate="show">
       {regions.map((region) => (
         <motion.div key={region.name} variants={item}>
-          <Link href={`/regions/${region.name.toLowerCase()}`}>
+          <Link href={`/region/${region.name.toLowerCase()}`}>
             <Card className="h-full hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
               <CardContent className="p-0">
                 <div className={`bg-gradient-to-br ${region.color} p-6 text-white`}>
